@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app-deployment
+  name: db-deployment
   namespace: togungbile
   labels:
-    app: app
+    app: db
 spec:
   replicas: 1
   strategy:
@@ -12,17 +12,17 @@ spec:
   minReadySeconds: 20
   selector:
     matchLabels:
-      app: app
+      app: db
   template:
     metadata:
       labels:
-        app: app
+        app: db
     spec:
       containers:
       - envFrom:
         - secretRef:
             name: db-secret
-        name: app-deployment
-        image: harbor.dev.afsmtddso.com/togungbile-harbor-project/app:971c881-0d0829e
+        name: db-deployment
+        image: harbor.dev.afsmtddso.com/togungbile-harbor-project/db@sha256:b57bd4a343238ed5941beb22831e1b24c6eb54686a1466b4e41048e93b6c778e
         ports:
-        - containerPort: 5000
+        - containerPort: 5432
