@@ -23,6 +23,6 @@ spec:
         - secretRef:
             name: db-secret
         name: app-deployment
-        image: harbor.dev.afsmtddso.com/togungbile-harbor-project/app:971c881-0d0829e
+        image: harbor.dev.afsmtddso.com/togungbile-harbor-project/app@sha256:af9db73c31ce5ad79112f380fa26b8c0e43a738ae1bf47b2d77c7a1dd402f889
         ports:
         - containerPort: 5000
